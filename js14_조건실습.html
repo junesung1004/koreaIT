@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건 실습</title>
+
+    <link rel="stylesheet" href="js14.css" />
+  </head>
+
+  <body>
+    <header>
+      <section id="container">
+        <div class="cont-text">
+          <h2 id="logo">로고 제목</h2>
+          <button id="btnEvent">숨겨줘</button>
+        </div>
+        <div class="cont-list">
+          <ol class="cont-list-item">
+            <li>항목1</li>
+            <li>항목2</li>
+            <li>항목3</li>
+          </ol>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="main-cont" class="main-wrap">
+        <ul>
+          <h3>Coffee</h3>
+          <li>아메리카노</li>
+          <li>카페라떼</li>
+          <li>녹차라떼</li>
+          <li>말차라떼</li>
+        </ul>
+      </section>
+      <section id="main-cont" class="main-wrap">
+        <ul>
+          <h3>Coffee</h3>
+          <li>아메리카노</li>
+          <li>카페라떼</li>
+          <li>녹차라떼</li>
+          <li>말차라떼</li>
+        </ul>
+      </section>
+      <section id="main-cont" class="main-wrap">
+        <ul>
+          <h3>Coffee</h3>
+          <li>아메리카노</li>
+          <li>카페라떼</li>
+          <li>녹차라떼</li>
+          <li>말차라떼</li>
+        </ul>
+      </section>
+      <section id="main-cont" class="main-wrap">
+        <ul>
+          <h3>Coffee</h3>
+          <li>아메리카노</li>
+          <li>카페라떼</li>
+          <li>녹차라떼</li>
+          <li>말차라떼</li>
+        </ul>
+      </section>
+      <section id="main-cont" class="main-wrap">
+        <ul>
+          <h3>Coffee</h3>
+          <li>아메리카노</li>
+          <li>카페라떼</li>
+          <li>녹차라떼</li>
+          <li>말차라떼</li>
+        </ul>
+      </section>
+      <section id="main-cont" class="main-wrap">
+        <ul>
+          <h3>Coffee</h3>
+          <li>아메리카노</li>
+          <li>카페라떼</li>
+          <li>녹차라떼</li>
+          <li>말차라떼</li>
+        </ul>
+      </section>
+      <section id="main-cont" class="main-wrap">
+        <ul>
+          <h3>Coffee</h3>
+          <li>아메리카노</li>
+          <li>카페라떼</li>
+          <li>녹차라떼</li>
+          <li>말차라떼</li>
+        </ul>
+      </section>
+    </main>
+    <button onclick="onModal()">새로운 창 열기</button>
+    <div class="back-black">
+      <div class="back-white">
+        <h4>제목</h4>
+        <form action="">
+          <input id="id" type="text" placeholder="id를 입력하세요." />
+          <label for="id"></label>
+          <!--  -->
+          <input
+            id="password"
+            type="password"
+            placeholder="password를 입력하세요."
+          />
+          <label for="password"></label>
+          <!--  -->
+          <!-- submit : 백엔드로 전달 -->
+          <!-- button : 백엔드로 전달 안할 때 -->
+          <input type="submit" value="로그인" />
+          <input type="button" value="닫기" />
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    const btn = document.querySelector("#btnEvent");
+    const list = document.querySelector("main");
+    const logo = document.querySelector("#logo");
+    function doModal() {
+      //평소에는 숨겨놓은 창을 보여주게 바꿔야지
+
+      document.querySelector(".back-black").style.visibility = "visible";
+      document.querySelector(".back-black").style.height = "100%";
+      document.querySelector(".back-black").style.opacity = "80%";
+    }
+
+    btn.addEventListener("click", () => {
+      if (list.style.display === "none") {
+        list.style.display = "flex";
+      } else {
+        list.style.display = "none";
+      }
+      if (btn.innerHTML === "숨겨줘") {
+        btn.innerHTML = "열어줘";
+      } else {
+        btn.innerHTML = "숨겨줘";
+      }
+    });
+
+    logo.addEventListener("mouseover", () => {
+      if (list.style.display === "none") {
+        list.style.display = "flex";
+      } else {
+        list.style.display = "none";
+      }
+    });
+
+    logo.addEventListener("mouseleave", () => {
+      if (list.style.display === "none") {
+        list.style.display = "flex";
+      } else {
+        list.style.display = "none";
+      }
+    });
+  </script>
+</html>

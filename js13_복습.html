@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 복습</title>
+  </head>
+  <body>
+    <script>
+      // 변수, 함수, 조건문
+      // 변수 : 값을 저장하는 공간
+      // 공간을 처음 만들때만 var, let, const 라고 붙여준다
+
+      /*
+      함수 : 코드를 저장하는 공간
+      공간을 처음 만들때만 function을 붙여준다.
+      기존에 만든 함수(코드더미)를 재활용할때는 function을 생략
+      함수를 사용하는 이유는 코드를 재활용하기 위해서 즉 유지보수도 좋아진다.
+      
+      */
+
+      function 같은지비교하기(숫자1, 숫자2) {
+        console.log(숫자1 === 숫자2 ? "같다" : "다르다");
+
+        /* if (숫자1 === 숫자2) {
+          console.log("같다");
+        } else {
+          console.log("다르다");
+        } */
+      }
+
+      function 작은값을찾는기능(숫자1, 숫자2) {
+        if (숫자1 < 숫자2) {
+          document.write("숫자1 :", 숫자1);
+        } else {
+          document.wirte("숫자2 :", 숫자2);
+        }
+      }
+
+      function 놀이기구탑승조건검사(키) {
+        if (키 < 130) {
+          console.log("탑승불가");
+        } else if (키 < 190) {
+          console.log("탑승가능");
+        } else {
+          console.log("탑승불가");
+        }
+      }
+
+      // 같은지비교하기(1, 2);
+      // 작은값을찾는기능(5, 6);
+      놀이기구탑승조건검사(129);
+      놀이기구탑승조건검사(150);
+      놀이기구탑승조건검사(193);
+    </script>
+  </body>
+</html>

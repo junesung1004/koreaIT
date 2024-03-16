@@ -1,0 +1,28 @@
+.wrap {
+  width: 40%;
+  height: 100%;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header button {
+  border: none;
+  background: black;
+  padding: 10px 60px;
+  color: white;
+  font-weight: 600;
+}
+
+.main {
+  display: flex;
+
+  flex-direction: column;
+  gap: 10px;
+}

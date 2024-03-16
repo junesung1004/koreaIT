@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다크모드</title>
+    <link rel="stylesheet" href="15.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <!--  -->
+      <div class="header">
+        <h2>Javascript</h2>
+        <button onclick="handleClick()">다크모드</button>
+      </div>
+      <!--  -->
+      <div class="main">
+        <div>올해 년도는?</div>
+        <div>
+          <input type="text" name="" id="text" value="" />
+          <button id="btn1">제출</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const btn = document.querySelector("button");
+    let 모드 = 0;
+
+    const handleClick = () => {
+      if (모드 % 2 == 0) {
+        btn.style.background = "white";
+        btn.style.color = "black";
+        모드++;
+      } else {
+        btn.style.background = "black";
+        btn.style.color = "white";
+        모드++;
+      }
+    };
+
+    const text = document.querySelector("#text");
+    const btn1 = document.querySelector("#btn1");
+
+    btn1.addEventListener("click", () => {
+      if (text.value === "2024") {
+        alert("정답입니다.");
+      } else {
+        alert("오답입니다.");
+      }
+    });
+  </script>
+</html>
