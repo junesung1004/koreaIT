@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>슬라이더</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .slider-container {
+        overflow: hidden;
+        width: 400px;
+        height: fit-content;
+      }
+
+      .slider-img {
+        display: flex;
+        width: 300%;
+        transition: all 0.4s ease-in;
+      }
+
+      .box {
+        width: 100%;
+      }
+
+      .box img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .slider-page-1 {
+        margin-left: 0;
+      }
+
+      .slider-page-2 {
+        margin-left: -100%;
+      }
+
+      .slider-page-3 {
+        margin-left: -200%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- slider container : 슬라이더의 크기를 결정 -->
+    <div class="slider-container">
+      <div class="slider-img">
+        <!--  -->
+        <div class="box">
+          <img src="./img/1.jpg" alt="고양이1" />
+        </div>
+
+        <!--  -->
+        <div class="box">
+          <img src="./img/3.jpg" alt="숲" />
+        </div>
+
+        <!--  -->
+        <div class="box">
+          <img src="./img/2.jpg" alt="고양이2" />
+        </div>
+      </div>
+    </div>
+    <button id="slider-btn-1">1</button>
+    <button id="slider-btn-2">2</button>
+    <button id="slider-btn-3">3</button>
+  </body>
+  <script>
+    // 반복문으로 이벤트 리스너 추가
+    for (let i = 1; i <= 3; i++) {
+      document
+        .getElementById(`slider-btn-${i}`)
+        .addEventListener("click", () => {
+          // 해당 버튼에 대한 클릭 이벤트 핸들러
+          const sliderImg = document.querySelector(".slider-img");
+          sliderImg.classList.remove(
+            "slider-page-1",
+            "slider-page-2",
+            "slider-page-3"
+          );
+          sliderImg.classList.add(`slider-page-${i}`);
+        });
+    }
+
+    /*
+  document.getElementById("slider-btn-1").addEventListener("click", () => {
+      document
+        .querySelector(".slider-img")
+        .classList.remove("slider-page-1", "slider-page-2", "slider-page-3");
+      document.querySelector(".slider-img").classList.add("slider-page-1");
+    });
+
+    document.getElementById("slider-btn-2").addEventListener("click", () => {
+      document
+        .querySelector(".slider-img")
+        .classList.remove("slider-page-1", "slider-page-2", "slider-page-3");
+      document.querySelector(".slider-img").classList.add("slider-page-2");
+    });
+
+    document.getElementById("slider-btn-3").addEventListener("click", () => {
+      document
+        .querySelector(".slider-img")
+        .classList.remove("slider-page-1", "slider-page-2", "slider-page-3");
+      document.querySelector(".slider-img").classList.add("slider-page-3");
+    });
+*/
+  </script>
+</html>

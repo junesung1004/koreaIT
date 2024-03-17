@@ -42,12 +42,16 @@
     const text = document.querySelector("#text");
     const btn1 = document.querySelector("#btn1");
 
-    btn1.addEventListener("click", () => {
-      if (text.value === "2024") {
+    const 정답 = () => {
+      if (text.value === "") {
+        alert("답을 입력해 주세요.");
+      } else if (text.value === "2024") {
         alert("정답입니다.");
       } else {
         alert("오답입니다.");
       }
-    });
+    };
+
+    btn1.addEventListener("click", 정답);
   </script>
 </html>

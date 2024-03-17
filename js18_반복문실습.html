@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭 기능 만들기</title>
+    <style>
+      .h-container {
+        display: flex;
+      }
+      .h-wrap {
+        display: flex;
+      }
+      .h-wrap ul {
+        display: flex;
+
+        width: 100%;
+        height: 100%;
+        gap: 30px;
+        font-size: 0;
+      }
+      .h-wrap ul li {
+        padding: 10px 20px;
+        border: 1px solid black;
+        list-style: none;
+        font-size: 16px;
+      }
+
+      .box {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="h-container">
+      <div class="h-wrap">
+        <ul>
+          <li class="item">탭1</li>
+          <li class="item">탭2</li>
+          <li class="item">탭3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="box">탭1의 내용</div>
+    <div class="box">탭2의 내용</div>
+    <div class="box">탭3의 내용</div>
+
+    <script>
+      const items = document.querySelectorAll(".item");
+      const boxes = document.querySelectorAll(".box");
+
+      items.forEach((item, i) => {
+        item.addEventListener("click", () => {
+          boxes.forEach((box, boxi) => {
+            if (i === boxi) {
+              box.style.display =
+                box.style.display === "none" ? "flex" : "none";
+            } else {
+              box.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
