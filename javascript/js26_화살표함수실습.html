@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 이벤트</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: gray;
+      }
+
+      .container-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+        background-color: beige;
+        z-index: 15; /* position 변경 필요 */
+        position: fixed;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .container-nav ul {
+        display: flex;
+        gap: 40px;
+      }
+
+      .container-nav li a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .container-content {
+        height: 800px;
+        border: 2px solid yellowgreen;
+      }
+
+      .ads {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: sticky;
+        top: 100px;
+        left: 80%;
+      }
+
+      .sticky-box {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        color: white;
+        position: sticky;
+        top: 100px;
+        left: 70%;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 내 스크롤을 따라다니는 상단 네비게이션바  -->
+    <!-- 내 스크롤을 따라다니는 박스 -->
+    <div class="container-nav">
+      <h3>로고</h3>
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">소개</a></li>
+      </ul>
+    </div>
+
+    <div style="height: 80px"></div>
+    <!-- <div class="ads">광고</div> -->
+
+    <!-- 1 -->
+    <div class="container-content">
+      <div class="sticky-box">스티키</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="container-content">
+      <div class="sticky-box">스티키</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="container-content">
+      <div class="sticky-box">스티키</div>
+    </div>
+
+    <script>
+      let 스크롤위치 = 0;
+      window.addEventListener("scroll", () => {
+        //console.log(window.scrollY);
+        스크롤위치 = window.scrollY;
+        // 스크롤이 200 밑으로 내려가면 fontSize를 12px로 변경, 글씨 색상도 변경
+        // 200 위로 다시 올라가면 원복
+        if (스크롤위치 > 200) {
+          document.querySelector(".container-nav h3").style.fontSize = "12px";
+          document.querySelector(".container-nav h3").style.transition =
+            "0.3s ease-in";
+        } else {
+          document.querySelector(".container-nav h3").style.fontSize = "24px";
+          document.querySelector(".container-nav h3").style.transition =
+            "0.3s ease-in";
+        }
+      });
+    </script>
+  </body>
+</html>

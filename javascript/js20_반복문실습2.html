@@ -17,7 +17,7 @@
       .slider-img {
         display: flex;
         width: 300%;
-        transition: all 0.4s ease-in;
+        transition: all 0.8s ease-in;
       }
 
       .box {
@@ -66,23 +66,65 @@
     <button id="slider-btn-1">1</button>
     <button id="slider-btn-2">2</button>
     <button id="slider-btn-3">3</button>
+  </br>
+</br>
+    <button id="toggle-auto-slide">스크롤 중지</button>
   </body>
   <script>
-    // 반복문으로 이벤트 리스너 추가
-    for (let i = 1; i <= 3; i++) {
-      document
-        .getElementById(`slider-btn-${i}`)
-        .addEventListener("click", () => {
-          // 해당 버튼에 대한 클릭 이벤트 핸들러
-          const sliderImg = document.querySelector(".slider-img");
-          sliderImg.classList.remove(
-            "slider-page-1",
-            "slider-page-2",
-            "slider-page-3"
-          );
-          sliderImg.classList.add(`slider-page-${i}`);
-        });
-    }
+    
+// 반복문으로 이벤트 리스너 추가
+for (let i = 1; i <= 3; i++) {
+  document
+    .getElementById(`slider-btn-${i}`)
+    .addEventListener("click", () => {
+      // 해당 버튼에 대한 클릭 이벤트 핸들러
+      const sliderImg = document.querySelector(".slider-img");
+      sliderImg.classList.remove(
+        "slider-page-1",
+        "slider-page-2",
+        "slider-page-3"
+      );
+      sliderImg.classList.add(`slider-page-${i}`);
+    });
+}
+
+let 자동스크롤 = true;
+let curSlide = 0;
+
+var 타이머저장공간 = setInterval(function() {
+  curSlide = (curSlide + 1) % 3; // 0 ~ 2까지만 가능
+  document.querySelector('.slider-img').classList
+    .remove("slider-page-1", "slider-page-2", "slider-page-3");
+  document.querySelector('.slider-img').classList.add(`slider-page-${curSlide + 1}`);
+}, 3000);
+
+function 자동스크롤시작() {
+  return setInterval(function() {
+    curSlide = (curSlide + 1) % 3; // 0 ~ 2까지만 가능
+    document.querySelector('.slider-img').classList
+      .remove("slider-page-1", "slider-page-2", "slider-page-3");
+    document.querySelector('.slider-img').classList.add(`slider-page-${curSlide + 1}`);
+  }, 3000);
+}
+
+document.getElementById("toggle-auto-slide").addEventListener("click", function() {
+  if (자동스크롤 === true) {
+    clearInterval(타이머저장공간);
+    자동스크롤 = false;
+    document.getElementById("toggle-auto-slide").textContent = '스크롤 시작';
+  } else {
+    타이머저장공간 = 자동스크롤시작();
+    자동스크롤 = true;
+    document.getElementById("toggle-auto-slide").textContent = '스크롤 중지';
+  }
+});
+
+
+    
+    
+    
+    
+    
 
     /*
   document.getElementById("slider-btn-1").addEventListener("click", () => {
