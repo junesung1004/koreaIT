@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트로 html태그 만들기</title>
+  </head>
+  <body>
+    <div id="box">asda</div>
+    <button>글 추가</button>
+
+    <script>
+      //자바스크립트로 태그 추가 방법
+      let p = document.createElement("p");
+      p.textContent = "하윙";
+
+      document.getElementById("box").appendChild(p);
+
+      // 자바스크립트로 태그 추가 방법2
+      // 변수에 html태그처럼 넣어버리기
+
+      let 변수 = 0;
+      let box코딩 = `<p class="font-yellow">자바스크립트로 태그추가${변수}</p>`;
+
+      document.getElementById("box").insertAdjacentHTML("beforeend", box코딩);
+      document.getElementById("box").insertAdjacentHTML("beforeend", box코딩);
+      document.getElementById("box").insertAdjacentHTML("beforeend", box코딩);
+
+      // 버튼이 눌리면 글이 추가 되도록 <h3>가 추가되도록
+      let button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        let h3 = document.createElement("h3");
+        h3.textContent = "라라라";
+        console.log(h3);
+        document.querySelector("#box").insertAdjacentElement("beforeend", h3);
+      });
+    </script>
+  </body>
+</html>

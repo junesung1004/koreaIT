@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="get-btn">get 요청</button>
+    <button id="post-btn">post 요청</button>
+    <button id="clear-btn">지우기</button>
+    <div id="box"></div>
+
+    <script>
+      //get-btn을 누르면 get요청을 한 결과를 html에 표시
+      //get-post을 누르면 post요청을 한 결과를 html에 표시
+      //clear-btn을 누르면 innethtml = '' 로 표시
+      let getBtn = document.querySelector("#get-btn");
+      let postBtn = document.querySelector("#post-btn");
+      let clearBtn = document.querySelector("#clear-btn");
+
+      let box = document.querySelector("#box");
+
+      let p = document.createElement("p");
+      let h3 = document.createElement("h3");
+
+      getBtn.addEventListener("click", () => {
+        fetch("https://httpbin.org/get")
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            let o = JSON.stringify(data);
+            p.textContent = `${o}`;
+            box.insertAdjacentElement("beforeend", p);
+          });
+      });
+
+      postBtn.addEventListener("click", () => {
+        fetch("https://httpbin.org/post", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({}),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            h3.textContent = `${data["url"]}`;
+            box.insertAdjacentElement("beforeend", h3);
+          });
+      });
+
+      clearBtn.addEventListener("click", () => {
+        box.innerHTML = "";
+      });
+    </script>
+  </body>
+</html>
