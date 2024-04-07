@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // class : 변수와 함수의 묶음
+      // class의 용도 : new로 찍어내기 위함
+      class 클래스 {
+        constructor() {
+          this.변수1 = 0; //this. : 클래스의 변수로 생성
+          this.변수2 = "값";
+        }
+
+        함수1() {
+          console.log("함수입니다."); // 클래스 안에 있는 함수는 -- 메서드
+        }
+      }
+
+      // 새로운 사람을 만들때마다 new 사람 하면 됨
+      class 사람 {
+        constructor(이름, 나이) {
+          this.이름 = 이름;
+          this.나이 = 나이;
+        }
+        인사하기() {
+          console.log(`안녕하세요 ${this.이름} 입니다.`);
+        }
+      }
+
+      let 이순신 = new 사람("이순신", 33);
+      let 김유신 = new 사람("김유신", 23);
+      let 유관순 = new 사람("유관순", 21);
+
+      이순신.인사하기(); // 사람 클래스로 부터 만들었기 때문에 인사하기()를 갖고 있음
+      console.log(유관순.나이);
+      김유신.인사하기();
+    </script>
+  </body>
+</html>

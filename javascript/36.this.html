@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="height: 3000px">
+      <button id="아이디">눌러주3</button>
+    </div>
+
+    <script>
+      /*
+      this : this라는 키워드가 적힌 위치
+      */
+      window.addEventListener("scroll", () => {
+        //console.log(window.scrollY);
+      });
+
+      //console.log(this);
+      //console.log(window.body);
+
+      document.querySelector("#아이디").addEventListener("click", function () {
+        console.log(this);
+      });
+
+      let 오브젝트 = {
+        a: 1,
+        b: 2,
+        c: this,
+        d: {
+          가: 1,
+          나: this,
+        },
+      };
+
+      console.log(오브젝트["c"]);
+      console.log(오브젝트["d"][1]);
+    </script>
+  </body>
+</html>
